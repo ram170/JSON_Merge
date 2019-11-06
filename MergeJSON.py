@@ -8,6 +8,7 @@ IP_BaseName=input()
 OP_BaseName=input()
 Max_Size=int(input())
 FinalData=defaultdict(list)
+counter=1
 
 
 def Merge(FName,Path):
@@ -25,9 +26,11 @@ for data in FolderFiles:
     Name,Extension=data.split('.')
     if(Name.count(IP_BaseName)):
         Merge(data,FolderPath)
+    if(Name.count(OP_BaseName)):
+       counter+=1
 
 if(getsizeof(FinalData)<=Max_Size):
-    with open(OP_BaseName+"1.json",'w') as json_file:
+    with open(OP_BaseName+str(counter)+".json",'w') as json_file:
       json.dump(FinalData, json_file)
     #print("Merge Successful")
 #else:
