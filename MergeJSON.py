@@ -24,9 +24,9 @@ def Merge(FName,Path):
 FolderFiles=os.listdir(FolderPath)
 for data in FolderFiles:
     Name,Extension=data.split('.')
-    if(Name.count(IP_BaseName)):
+    if(Name.count(IP_BaseName) and Extension=="json"):
         Merge(data,FolderPath)
-    if(Name.count(OP_BaseName)):
+    if(Name.count(OP_BaseName) and Extension=="json"):
        counter+=1
 
 if(getsizeof(FinalData)<=Max_Size):
